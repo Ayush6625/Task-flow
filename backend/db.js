@@ -1,8 +1,8 @@
-const Database = require('better-sqlite3');
+const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 const dbPath = path.resolve(__dirname, 'taskflow.db');
-const db = new Database('taskflow.db');
+const db = new sqlite3.Database(dbPath);
 
 const initDb = () => {
   db.serialize(() => {
